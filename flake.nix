@@ -92,6 +92,8 @@
         window_gap          = 10;
         mouse_modifier      = "alt";
       };
+
+      services.skhd.enable = true;
     };
     home = { pkgs, ... }: {
       # Let Home Manager install and manage itself.
@@ -118,6 +120,7 @@
           pkgs.alacritty
           pkgs.neofetch
           pkgs.yabai
+          pkgs.skhd
       ];
     };
   in
