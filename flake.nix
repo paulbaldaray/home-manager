@@ -72,6 +72,7 @@
           FXPreferredViewStyle = "clmv";
         };
 
+        # universalaccess.reduceTransparency = true;
         loginwindow.LoginwindowText = "Don't Steal My Data!";
         screencapture.location = "~/Pictures/screenshots";
         # screensaver.askForPasswordDelay = 1;
