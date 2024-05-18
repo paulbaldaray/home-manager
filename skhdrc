@@ -1,0 +1,31 @@
+"
+# cycle forward
+alt - k : yabai -m window --focus next || yabai -m window --focus first
+
+# cycle backwards
+alt - j : yabai -m window --focus prev || yabai -m window --focus last
+
+
+alt - l : yabai -m window --resize right:50:0 \
+  || yabai -m window --resize left:-50:0
+alt - h : yabai -m window --resize right:-50:0 \
+  || yabai -m window --resize left:50:0
+
+alt - t : /Applications/iTerm.app/Contents/MacOS/iTerm2
+
+alt - f : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+alt + shift - f : /Applications/Firefox.app/Contents/MacOS/firefox
+
+cmd - q : echo
+cmd + shift - q : echo
+# cmd - w : echo
+cmd - h : echo
+cmd - tab : echo
+cmd - return : echo
+
+alt + shift - q : kill $(yabai -m query --windows --window | jq '.pid') \
+  && yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
+alt - q : yabai -m window --close \
+  && yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
+alt + shift - l : pmset displaysleepnow
+"

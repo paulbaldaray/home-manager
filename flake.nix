@@ -94,6 +94,7 @@
       };
 
       services.skhd.enable = true;
+      services.skhd.config = import ./skhdrc
     };
     home = { pkgs, ... }: {
       # Let Home Manager install and manage itself.
