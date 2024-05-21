@@ -16,14 +16,20 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  with {
+    user-info = {
+      username = "pbay";
+      hostname = "pbay-macbookpro";
+    }; 
+  };
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
 
-      users.users.paul = {
-        name = "paul";
-        home = "/Users/paul";
+      users.users."${user-info.username}" = {
+        name = "${user-info.username}";
+        home = "/Users/${user-info.username}";
       };
 
       environment.systemPackages = [
@@ -79,22 +85,7 @@
       };
 
       services.yabai.enable = true;
-      services.yabai.config = {
-        layout = "bsp";
-        # focus_follows_mouse = "autoraise";
-        mouse_follows_focus = "off";
-        # window_placement    = "second_child";
-        window_opacity      = "off";
-        top_padding         = 10;
-        bottom_padding      = 10;
-        left_padding        = 10;
-        right_padding       = 10;
-        window_gap          = 10;
-        mouse_modifier      = "alt";
-      };
-
       services.skhd.enable = true;
-      services.skhd.config = import ./skhdrc
     };
     home = { pkgs, ... }: {
       # Let Home Manager install and manage itself.
@@ -102,8 +93,8 @@
 
       # Home Manager needs a bit of information about you and the
       # paths it should manage.
-      home.username = "paul";
-      home.homeDirectory = "/Users/paul";
+      home.username = "${user-info.username}";
+      home.homeDirectory = "/Users/${user-info.username}";
 
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage
@@ -118,17 +109,17 @@
       home.packages = [
           pkgs.neovim
           pkgs.git
-          pkgs.alacritty
           pkgs.neofetch
           pkgs.yabai
           pkgs.skhd
+          pkgs.jq
       ];
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."maclup" =
+    darwinConfigurations."${user-info.hostname}" =
       nix-darwin.lib.darwinSystem {
         modules = [
           configuration
@@ -136,7 +127,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
-            home-manager.users.paul = home;
+            home-manager.users."${user-info.username}" = home;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -145,6 +136,6 @@
       };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."maclup".pkgs;
+    darwinPackages = self.darwinConfigurations."${user-info.hostname}".pkgs;
   };
 }
