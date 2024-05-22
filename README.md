@@ -2,6 +2,10 @@
 
 ## NIX SETUP
 
+### Rosetta
+
+`softwareupdate --install-rosetta --agree-to-license`
+
 ### Download Nix
 
 ```
@@ -22,7 +26,7 @@ curl \
 ### Setup symlinks
 
 ```
-for file in "kitty skhd yabai"; do
+for file in kitty skhd yabai; do
     ln -s ~/.config/home-manager/configs/$file ~/.config/$file
 done
 ```

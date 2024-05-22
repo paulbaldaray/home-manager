@@ -1,3 +1,5 @@
+alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
+
 # cycle forward
 alt - k : yabai -m window --focus next || yabai -m window --focus first
 
@@ -18,8 +20,9 @@ cmd - q : echo
 cmd + shift - q : echo
 # cmd - w : echo
 cmd - h : skhd --key "cmd - a"
-cmd - l : skhd --key "cmd - b"
 cmd - t : skhd --key "cmd - z"
+
+cmd - m : echo
 cmd - tab : echo
 cmd - return : echo
 

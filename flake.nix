@@ -18,8 +18,8 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   with {
     user-info = {
-      username = "pbay";
-      hostname = "pbay-macbookpro";
+      username = "paul";
+      hostname = "maclup";
     }; 
   };
   let
@@ -47,8 +47,7 @@
       nix.settings.experimental-features = "nix-command flakes";
 
       # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
+      programs.zsh.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -66,10 +65,8 @@
       system.defaults = {
         dock = {
           autohide = true;
-
           autohide-delay = 0.0;
           tilesize = 1;
-
           mru-spaces = false;
         };
 
@@ -78,10 +75,8 @@
           FXPreferredViewStyle = "clmv";
         };
 
-        # universalaccess.reduceTransparency = true;
         loginwindow.LoginwindowText = "Don't Steal My Data!";
         screencapture.location = "~/Pictures/screenshots";
-        # screensaver.askForPasswordDelay = 1;
       };
 
       services.yabai.enable = true;
@@ -107,12 +102,15 @@
       home.stateVersion = "23.11";
 
       home.packages = [
-          pkgs.neovim
-          pkgs.git
-          pkgs.neofetch
-          pkgs.yabai
-          pkgs.skhd
-          pkgs.jq
+        pkgs.kotlin
+        pkgs.jdk
+        pkgs.neovim
+        pkgs.kitty
+        pkgs.git
+        pkgs.neofetch
+        pkgs.yabai
+        pkgs.skhd
+        pkgs.jq
       ];
     };
   in
@@ -128,9 +126,6 @@
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
             home-manager.users."${user-info.username}" = home;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
         ];
       };
