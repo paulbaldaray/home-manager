@@ -41,6 +41,10 @@ done
 * Reduce transparency: on
 * Reduce motion: on
 
+### Keyboard > Keyboard layouts
+
+* Disable everything
+
 ### Keyboard > Keyboard Shortcuts
 
 * Turn everything off
