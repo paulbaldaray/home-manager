@@ -56,3 +56,7 @@ done
 
 * nvim
 * .shell
+
+### Commands
+
+* defaults write -g ApplePressAndHoldEnabled -bool false

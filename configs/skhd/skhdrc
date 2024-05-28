@@ -1,5 +1,8 @@
 alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
 
+# Swap with first
+alt - return : yabai -m window --swap first || yabai -m window --swap recent
+
 # cycle forward
 alt - k : yabai -m window --focus next || yabai -m window --focus first
 
@@ -10,6 +13,7 @@ alt - l : yabai -m window --resize right:50:0 \
   || yabai -m window --resize left:-50:0
 alt - h : yabai -m window --resize right:-50:0 \
   || yabai -m window --resize left:50:0
+
 
 alt - t : kitty --directory ~
 
@@ -25,6 +29,9 @@ cmd - t : skhd --key "cmd - z"
 cmd - m : echo
 cmd - tab : echo
 cmd - return : echo
+
+# Restart skhd
+alt + shift - r : killall skhd; killall skhd; skhd --start-service
 
 alt + shift - q : kill $(yabai -m query --windows --window | jq '.pid') \
   && yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
