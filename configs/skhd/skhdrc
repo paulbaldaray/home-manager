@@ -26,6 +26,8 @@ cmd + shift - q : echo
 cmd - h : skhd --key "cmd - a"
 cmd - t : skhd --key "cmd - z"
 
+alt - tab :  [ $(yabai -m query --windows --space | jq -re "map(select(.\"has-focus\" == true)) | length != 0") = true ] && yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | reverse | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")" ||  yabai -m window --focus "$(yabai -m query --spaces --space | jq -re ".windows[0]?")" &> /dev/null
+
 cmd - m : echo
 cmd - tab : echo
 cmd - return : echo
