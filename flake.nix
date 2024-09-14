@@ -18,8 +18,8 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   with {
     user-info = {
-      username = "paul";
-      hostname = "maclup";
+      username = "pbay";
+      hostname = "pbay-mac";
     }; 
   };
   let
