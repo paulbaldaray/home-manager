@@ -21,6 +21,10 @@ curl \
 
 nix run --extra-experimental-features nix-command --extra-experimental-features flakes nix-darwin --extra-experimental-features nix-command -- switch --flake ~/.config/home-manager
 
+## Rebuild
+
+darwin-rebuild switch --flake .
+
 ## MANUAL TASKS
 
 ### Setup symlinks
