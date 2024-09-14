@@ -66,7 +66,7 @@
         dock = {
           autohide = true;
           autohide-delay = 0.0;
-          tilesize = 1;
+          tilesize = 10;
           mru-spaces = false;
         };
 
@@ -105,7 +105,6 @@
         pkgs.kotlin
         pkgs.jdk
         pkgs.neovim
-        pkgs.kitty
         pkgs.git
         pkgs.neofetch
         pkgs.yabai

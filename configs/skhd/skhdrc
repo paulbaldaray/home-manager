@@ -17,7 +17,7 @@ alt - h : yabai -m window --resize right:-50:0 \
   || yabai -m window --resize left:50:0
 
 
-alt - t : kitty --directory ~
+alt - t : /Applications/kitty.app/Contents/MacOS/kitty --directory ~
 
 alt - f : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 alt + shift - f : /Applications/Firefox.app/Contents/MacOS/firefox
