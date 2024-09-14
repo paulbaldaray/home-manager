@@ -1,0 +1,5 @@
+#!/bin/zsh
+name=`yabai -m query --windows --window | jq -r '.app'`
+if [[ "$name" != "$1" ]]; then
+  exit 1
+fi

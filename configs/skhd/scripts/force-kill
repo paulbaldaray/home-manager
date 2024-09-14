@@ -1,0 +1,4 @@
+#!/bin/zsh
+kill $(yabai -m query --windows --window | jq '.pid') \
+&& yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
+

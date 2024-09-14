@@ -37,9 +37,8 @@ cmd - return : echo
 # Restart skhd
 alt + shift - r : killall skhd; killall skhd; skhd --start-service
 
-alt + shift - q : kill $(yabai -m query --windows --window | jq '.pid') \
-  && yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
-alt - q : yabai -m window --close \
-  && yabai -m window --focus $(yabai -m query --windows --space | jq '.[0].id')
+alt + shift - q : ~/.config/home-manager/configs/skhd/scripts/force-kill
+
+alt - q : ~/.config/home-manager/configs/skhd/scripts/term-close
 
 alt + shift - l : pmset displaysleepnow

@@ -1,0 +1,8 @@
+#!/bin/zsh
+scripts="$HOME/.config/home-manager/configs/skhd/scripts"
+if $scripts/is-app-eq kitty; then
+  $scripts/force-kill
+else
+  yabai -m window --close
+fi
+$scripts/refocus
