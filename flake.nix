@@ -111,6 +111,7 @@
         pkgs.yabai
         pkgs.skhd
         pkgs.jq
+        pkgs.luarocks
       ];
     };
   in

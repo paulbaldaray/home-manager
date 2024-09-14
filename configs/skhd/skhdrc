@@ -1,4 +1,6 @@
-alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
+alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "stack" then "bsp" else "stack" end')
+
+alt + shift - space : yabai -m space --layout float
 
 # Swap with first
 alt - return : yabai -m window --swap first || yabai -m window --swap recent
