@@ -19,7 +19,7 @@ curl \
 
 ### Run Nix Darwin
 
-`nix run nix-darwin -- switch --flake ~/.config/home-manager`
+nix run --extra-experimental-features nix-command --extra-experimental-features flakes nix-darwin --extra-experimental-features nix-command -- switch --flake ~/.config/home-manager
 
 ## MANUAL TASKS
 
