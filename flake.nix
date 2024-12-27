@@ -102,6 +102,7 @@
       home.stateVersion = "23.11";
 
       home.packages = [
+        pkgs.pypy3
         pkgs.kotlin
         pkgs.jdk
         pkgs.neovim
